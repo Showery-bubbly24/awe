@@ -15,29 +15,21 @@ export default function VideoPlayer({ video }) {
     );
   }
 
-  // Функция для преобразования обычной ссылки в embed-ссылку для Rutube
 const convertToEmbedUrl = (url) => {
     try {
         const urlObj = new URL(url);
         
-        // Проверяем, что это rutube.ru
         if (urlObj.hostname.includes('rutube.ru')) {
-            // Разбиваем путь на части и фильтруем пустые элементы
             const pathParts = urlObj.pathname.split('/').filter(part => part !== '');
-            
-            // Ищем позицию "video" в пути
             const videoIndex = pathParts.indexOf('video');
             
-            // Если нашли "video" и после него есть ещё элементы
             if (videoIndex !== -1 && videoIndex + 1 < pathParts.length) {
-                // Берем следующий элемент после "video" - это ID видео
                 const videoId = pathParts[videoIndex + 1];
                 console.log(`https://rutube.ru/play/embed/${videoId}`);
                 return `https://rutube.ru/play/embed/${videoId}`;
             }
         }
         
-        // Если не удалось извлечь ID, возвращаем исходную ссылку
         return url;
     } catch (e) {
         console.error("Ошибка при преобразовании ссылки:", e);

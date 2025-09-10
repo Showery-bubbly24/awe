@@ -22,8 +22,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -41,6 +40,6 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint-config-react": "^1.1.7",
-    "eslint-config-react-app": "^0.0.0"
+    "eslint-config-react-app": "^7.0.1"
   }
 }

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import TabsNav from './components/TabsNav';
-import VideoPlayer from './components/VideoPlayer';
 import WelcomeScreen from './components/WelcomeScreen';
+import VideoScreen from './components/VideoScreen';
+import PostsScreen from './components/PostsScreen';
 import { videoAPI } from './services/api';
-import './App.css';
+import './styles/main.css';
 
 function App() {
-  const [showWelcome, setShowWelcome] = useState(true);
+  const [currentView, setCurrentView] = useState('welcome');
   const [videos, setVideos] = useState([]);
   const [activeVideo, setActiveVideo] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -66,39 +66,50 @@ function App() {
     await loadVideoDetails(video.namevid);
   };
 
-  // Загружаем видео при инициализации
+  // Загружаем видео при переходе на экран видео
   useEffect(() => {
-    if (!showWelcome) {
+    if (currentView === 'videos') {
       loadVideos();
     }
-  }, [showWelcome]);
+  }, [currentView]);
 
-  if (showWelcome) {
-    return <WelcomeScreen onEnter={() => setShowWelcome(false)} />;
-  }
+  const handleEnterVideos = () => {
+    setCurrentView('videos');
+  };
+
+  const handleEnterPosts = () => {
+    setCurrentView('posts');
+  };
+
+  const handleBackToWelcome = () => {
+    setCurrentView('welcome');
+    setActiveVideo(null);
+  };
 
   return (
     <div className="app">
-      <header className="app__header">
-        <div className="brand">
-          <span className="brand__dot" />
-          <span className="brand__name">OurMirrowForYourVideo</span>
-        </div>
-      </header>
-
-      <nav className="app__nav">
-        <TabsNav
-          tabs={videos}
-          activeId={activeVideo ? activeVideo.videoid : null}
-          onChange={handleSelectVideo}
+      {currentView === 'welcome' && (
+        <WelcomeScreen 
+          onEnterVideos={handleEnterVideos}
+          onEnterPosts={handleEnterPosts}
+        />
+      )}
+      
+      {currentView === 'videos' && (
+        <VideoScreen
+          videos={videos}
+          activeVideo={activeVideo}
+          onVideoSelect={handleSelectVideo}
           onAddVideo={handleAddVideo}
           onDeleteVideo={handleDeleteVideo}
+          onBack={handleBackToWelcome}
+          loading={loading}
         />
-      </nav>
-
-      <main className="app__main">
-        <VideoPlayer video={activeVideo} />
-      </main>
+      )}
+      
+      {currentView === 'posts' && (
+        <PostsScreen onBack={handleBackToWelcome} />
+      )}
     </div>
   );
 }

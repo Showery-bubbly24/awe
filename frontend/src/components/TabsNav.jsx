@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TabsNav({ tabs = [], activeId, onChange, onAddVideo, onDeleteVideo }) {
+export default function TabsNav({ tabs = [], activeId, onChange, onAddVideo, onDeleteVideo, loading }) {
   const [newVideoLink, setNewVideoLink] = useState('');
   const [isAdding, setIsAdding] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -20,9 +20,16 @@ export default function TabsNav({ tabs = [], activeId, onChange, onAddVideo, onD
     }
   };
 
+  if (loading) {
+    return (
+      <div className="tabs-loading">
+        <p>Загрузка видео...</p>
+      </div>
+    );
+  }
+
   return (
     <div>
-      {/* Кнопка добавления видео */}
       <div style={{ padding: '10px', display: 'flex', justifyContent: 'center' }}>
         <button
           onClick={() => setShowAddForm(!showAddForm)}
@@ -33,7 +40,6 @@ export default function TabsNav({ tabs = [], activeId, onChange, onAddVideo, onD
         </button>
       </div>
 
-      {/* Форма добавления видео */}
       {showAddForm && (
         <div style={{ 
           padding: '10px', 
@@ -68,7 +74,6 @@ export default function TabsNav({ tabs = [], activeId, onChange, onAddVideo, onD
         </div>
       )}
 
-      {/* Список вкладок */}
       <div className="tabs" role="tablist" aria-label="Видео">
         {tabs.map((tab) => {
           const isActive = tab.videoid === activeId;

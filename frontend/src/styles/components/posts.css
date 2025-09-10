@@ -1,0 +1,13 @@
+.posts-container {
+  width: 100%;
+  max-width: 980px;
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.posts-container h2 {
+  margin-top: 0;
+}
