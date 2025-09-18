@@ -109,24 +109,18 @@ export default function PostsScreen({ onBack, user }) {
           ) : (
             <div className="posts-list">
   {posts.map((post, index) => {
-    const uniqueKey = post.Postid ? `post-${post.Postid}-${index}` : `post-${index}`;
-
-const options = {
-  year: "numeric",
-  month: "numeric",
-  day: "numeric",
-};
+    const uniqueKey = post.postid ? `post-${post.postid}-${index}` : `post-${index}`;
 
     return (
       <Post 
         key={uniqueKey}
         post={{
-          id: post.Postid,
-          title: post.Title || "",      // Заголовок
-          text: post.Textpost || "",    // Текст
-          images: post.ImgUrl ? post.ImgUrl.split(';;').filter(img => img !== '') : [],
+          id: post.postid,
+          title: post.title || "",      // Заголовок
+          text: post.textpost || "",    // Текст
+          images: post.imgUrl ? post.imgUrl.split(';;').filter(img => img !== '') : [],
           author: post.author || "Неизвестный автор",
-          date: post.Postdate || new Date(post.Postdate).toLocaleDateString('ru-RU', options)
+          date: post.postdate ? new Date(post.postdate).toLocaleDateString('ru-RU') : "invalid data"
         }}
         currentUser={user}
         onDelete={isEditor ? handleDeletePost : null}
