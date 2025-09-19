@@ -1,0 +1,9 @@
+.welcome__footer {
+  padding: 16px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+  height: 60px;
+}
