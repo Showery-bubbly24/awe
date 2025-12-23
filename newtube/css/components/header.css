@@ -1,0 +1,281 @@
+/* ===== HEADER & NAVBAR STYLES ===== */
+.app-header {
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 8px;
+    gap: 16px;
+}
+
+/* Левая часть навбара */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 0 0 auto;
+    min-width: 200px;
+}
+
+.nav-icon {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: background-color var(--transition-speed);
+}
+
+.nav-icon:hover {
+    background-color: var(--hover-bg);
+}
+
+.home-btn i {
+    font-size: 1.3rem;
+}
+
+/* Переключатель вкладок */
+.tab-switcher {
+    display: flex;
+    align-items: center;
+}
+
+.tab-buttons {
+    display: flex;
+    background-color: var(--hover-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+    white-space: nowrap;
+}
+
+.tab-btn i {
+    font-size: 0.9rem;
+}
+
+.tab-btn.active {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    box-shadow: var(--shadow-active);
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Центральная часть навбара (Поиск) */
+.nav-center {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    min-width: 0;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-box {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--search-border);
+    background-color: var(--search-bg);
+    transition: border-color var(--transition-speed);
+}
+
+.search-box:focus-within {
+    border-color: var(--search-focus-border);
+    box-shadow: 0 0 0 2px rgba(255, 59, 48, 0.1);
+}
+
+body.posts-theme .search-box:focus-within {
+    box-shadow: 0 0 0 2px rgba(29, 161, 242, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 0 16px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: transparent;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.search-btn {
+    width: 64px;
+    border: none;
+    background-color: var(--hover-bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--border-color);
+}
+
+.search-btn:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: var(--text-color);
+}
+
+.search-btn i {
+    font-size: 1rem;
+}
+
+/* Правая часть навбара (Кнопки авторизации) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    min-width: 200px;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.auth-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: var(--border-radius-lg);
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    white-space: nowrap;
+    height: 40px;
+}
+
+.auth-btn i {
+    font-size: 0.9rem;
+}
+
+.login-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.login-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--primary-color);
+}
+
+.register-btn {
+    background-color: var(--btn-primary-bg);
+    color: white;
+    border: 1px solid var(--btn-primary-bg);
+}
+
+.register-btn:hover {
+    background-color: var(--btn-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.create-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: var(--border-radius-lg);
+    border: none;
+    background-color: var(--btn-primary-bg);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    white-space: nowrap;
+    height: 40px;
+}
+
+.create-btn:hover {
+    background-color: var(--btn-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+.create-btn i {
+    font-size: 0.9rem;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed);
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 2px var(--primary-color);
+}

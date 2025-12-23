@@ -1,0 +1,111 @@
+/* Posts Tab Styles */
+.posts-tab {
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.posts-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.post-placeholder {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.post-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.post-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+    transition: all var(--transition-speed);
+    border-left: 4px solid var(--primary-color);
+}
+
+.post-card:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 12px;
+}
+
+.post-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.post-author {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.post-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.post-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.post-content {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.post-tag {
+    background: var(--border-color);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .posts-list {
+        padding: 0 10px;
+    }
+    
+    .post-card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}

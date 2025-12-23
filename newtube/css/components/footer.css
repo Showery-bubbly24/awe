@@ -1,0 +1,21 @@
+/* Footer Styles */
+.app-footer {
+    padding: 20px 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: auto;
+}
+
+.app-footer p {
+    opacity: 0.7;
+    transition: opacity var(--transition-speed);
+}
+
+.app-footer:hover p {
+    opacity: 1;
+}

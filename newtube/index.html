@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 NeWTube</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Навбар -->
+    <header class="app-header">
+        <div class="container">
+            <div class="navbar">
+                <!-- Левая часть: Иконка и переключатель -->
+                <div class="nav-left">
+                    <button class="nav-icon home-btn" id="home-link" title="Главная">
+                        <i class="fas fa-home"></i>
+                    </button>
+                    
+                    <div class="tab-switcher">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="videos">
+                                <i class="fas fa-video"></i>
+                                <span class="btn-text">Видео</span>
+                            </button>
+                            <button class="tab-btn" data-tab="posts">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="btn-text">Посты</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Центральная часть: Поиск -->
+                <div class="nav-center">
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="Поиск видео и постов...">
+                            <button class="search-btn" title="Поиск">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая часть: Кнопки авторизации -->
+                <div class="nav-right">
+                    <div class="auth-buttons">
+                        <!-- Кнопки будут вставляться динамически -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="app-main">
+        <div class="container" id="tab-container">
+            <!-- Компоненты будут вставляться сюда -->
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="app-footer">
+        <div class="container">
+            <p>Прототип сайта</p>
+        </div>
+    </footer>
+
+    <!-- Загружаем Web Components -->
+    <script type="module" src="js/main.js"></script>
+    
+    <!-- Проверка поддержки localStorage -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof(Storage) === "undefined") {
+                console.warn("Ваш браузер не поддерживает localStorage. Данные не будут сохраняться.");
+                
+                // Создаем уведомление для пользователя
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <span class="notification-text">Ваш браузер не поддерживает сохранение данных. Пожалуйста, обновите браузер.</span>
+                    </div>
+                `;
+                notification.style.background = '#FF3B30';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

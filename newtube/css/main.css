@@ -1,0 +1,241 @@
+@import url('variables.css');
+@import url('components/header.css');
+@import url('components/footer.css');
+@import url('components/registration-modal.css');
+@import url('content-styles.css');
+
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    transition: all var(--transition-speed) ease;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.app-main {
+    padding: 24px 0;
+    min-height: calc(100vh - 120px);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+}
+
+#tab-container {
+    width: 100%;
+}
+
+/* Скрываем неактивные вкладки */
+video-tab,
+posts-tab {
+    display: none;
+}
+
+video-tab.active,
+posts-tab.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== УВЕДОМЛЕНИЯ ===== */
+.notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: #1DA1F2;
+    color: white;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-hover);
+    z-index: 1000;
+    max-width: 320px;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.notification-text {
+    flex: 1;
+}
+
+.notification-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+/* ===== МЕНЮ ПОЛЬЗОВАТЕЛЯ ===== */
+.user-dropdown {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--border-color);
+    min-width: 250px;
+    animation: slideDown 0.2s ease;
+    position: absolute;
+    top: 60px;
+    right: 16px;
+    z-index: 1000;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-content {
+    padding: 8px 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+}
+
+.user-avatar-large {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-details strong {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.user-details small {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    display: block;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 8px 0;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color var(--transition-speed);
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.logout-btn {
+    color: #FF3B30;
+}
+
+.logout-btn:hover {
+    color: #E53935;
+    background-color: rgba(255, 59, 48, 0.1);
+}
+
+/* ===== ОТВЕТСТВЕННЫЙ ДИЗАЙН ===== */
+@media (max-width: 768px) {
+    .app-main {
+        padding: 16px 0;
+    }
+    
+    .notification {
+        top: 60px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
+}

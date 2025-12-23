@@ -1,0 +1,349 @@
+/* ===== ОБЩИЕ СТИЛИ ДЛЯ КАРТОЧЕК ===== */
+.content-container {
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* Шапка вкладки */
+.tab-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.tab-header h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.tab-header h2 i {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.tab-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Сетка для контента */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Единая карточка контента */
+.content-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all var(--transition-speed);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-color);
+}
+
+/* Медиа-область (обложка/аватар) */
+.content-media {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.content-media i {
+    font-size: 3.5rem;
+    color: white;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.content-media::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1), 
+        rgba(0, 0, 0, 0.1)
+    );
+}
+
+/* Бейдж/длительность */
+.content-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 2;
+}
+
+/* Информация о контенте */
+.content-info {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--text-color);
+    font-weight: 600;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.content-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Мета-информация */
+.content-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.meta-item i {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+/* Теги (для постов) */
+.content-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.content-tag {
+    background: var(--border-color);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+}
+
+.content-tag:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Автор (для постов) */
+.content-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.author-info {
+    flex-grow: 1;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.author-date {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Состояние "нет данных" */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    opacity: 0.7;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.empty-state h3 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        padding: 15px 0;
+    }
+    
+    .tab-header {
+        margin-bottom: 30px;
+    }
+    
+    .tab-header h2 {
+        font-size: 1.7rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .content-media {
+        height: 180px;
+    }
+    
+    .content-info {
+        padding: 20px;
+    }
+    
+    .content-title {
+        font-size: 1.2rem;
+    }
+    
+    .empty-state {
+        padding: 40px 15px;
+    }
+    
+    .empty-icon {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .content-media {
+        height: 160px;
+    }
+    
+    .content-media i {
+        font-size: 3rem;
+    }
+    
+    .content-info {
+        padding: 16px;
+    }
+    
+    .content-title {
+        font-size: 1.1rem;
+    }
+    
+    .content-description {
+        font-size: 0.9rem;
+    }
+    
+    .tab-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .empty-state h3 {
+        font-size: 1.5rem;
+    }
+}
